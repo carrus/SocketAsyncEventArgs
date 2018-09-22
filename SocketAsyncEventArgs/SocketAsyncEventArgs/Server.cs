@@ -114,7 +114,11 @@ namespace SocketAsyncEventArgsTest
                 Console.WriteLine("Receive frome A client {0} {1} ", clientSocket.RemoteEndPoint.ToString(),str);
 
                 bool willRaiseEvent = clientSocket.ReceiveAsync(e);
-               
+                if (!willRaiseEvent)
+                {
+                    ProcessReceive(e);
+                }
+
             }
             else
             {
